@@ -1,0 +1,114 @@
+# Multi-Intersection Network Configuration Example
+# This configuration demonstrates coordinated signal control across multiple intersections
+
+network:
+  name: Downtown Corridor Network
+  coordination_enabled: true
+  target_speed_mph: 35
+  update_interval: 5.0
+
+intersections:
+  intersection_1:
+    id: intersection_1
+    name: Main St & 1st Ave
+    video_source: data/intersection1.mp4
+    lanes:
+      north:
+        region: [100, 0, 300, 400]
+        direction: north
+        type: through
+      south:
+        region: [400, 200, 600, 600]
+        direction: south
+        type: through
+      east:
+        region: [300, 100, 700, 300]
+        direction: east
+        type: through
+      west:
+        region: [0, 300, 400, 500]
+        direction: west
+        type: through
+    turn_lanes:
+      north_left:
+        region: [100, 0, 200, 400]
+        turn_type: left
+        conflicting_movements: [south, east]
+        minimum_green: 5
+        maximum_green: 30
+    crosswalks:
+      north_crosswalk:
+        region: [250, 380, 450, 420]
+        crossing_distance: 15.0
+        conflicting_lanes: [north, south]
+
+  intersection_2:
+    id: intersection_2
+    name: Main St & 2nd Ave
+    video_source: data/intersection2.mp4
+    lanes:
+      north:
+        region: [100, 0, 300, 400]
+        direction: north
+        type: through
+      south:
+        region: [400, 200, 600, 600]
+        direction: south
+        type: through
+      east:
+        region: [300, 100, 700, 300]
+        direction: east
+        type: through
+      west:
+        region: [0, 300, 400, 500]
+        direction: west
+        type: through
+    turn_lanes:
+      south_left:
+        region: [500, 200, 600, 600]
+        turn_type: left
+        conflicting_movements: [north, west]
+        minimum_green: 5
+        maximum_green: 30
+
+  intersection_3:
+    id: intersection_3
+    name: Main St & 3rd Ave
+    video_source: data/intersection3.mp4
+    lanes:
+      north:
+        region: [100, 0, 300, 400]
+        direction: north
+        type: through
+      south:
+        region: [400, 200, 600, 600]
+        direction: south
+        type: through
+      east:
+        region: [300, 100, 700, 300]
+        direction: east
+        type: through
+      west:
+        region: [0, 300, 400, 500]
+        direction: west
+        type: through
+
+connections:
+  - from: intersection_1
+    to: intersection_2
+    distance_meters: 400
+    travel_time_seconds: 30
+  - from: intersection_2
+    to: intersection_3
+    distance_meters: 450
+    travel_time_seconds: 35
+
+corridors:
+  - name: Main Street Northbound Corridor
+    intersections: [intersection_1, intersection_2, intersection_3]
+    direction: north
+    priority: high
+  - name: Main Street Southbound Corridor
+    intersections: [intersection_3, intersection_2, intersection_1]
+    direction: south
+    priority: high

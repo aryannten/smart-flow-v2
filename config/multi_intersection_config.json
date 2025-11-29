@@ -1,0 +1,62 @@
+{
+  "network": {
+    "name": "Downtown Corridor",
+    "coordination_enabled": true,
+    "target_speed_mph": 35,
+    "update_interval": 5.0
+  },
+  "intersections": {
+    "intersection_1": {
+      "id": "intersection_1",
+      "name": "Main St & 1st Ave",
+      "video_source": "data/intersection1.mp4",
+      "lanes": {
+        "north": {"region": [100, 0, 300, 400], "direction": "north"},
+        "south": {"region": [400, 200, 600, 600], "direction": "south"},
+        "east": {"region": [300, 100, 700, 300], "direction": "east"},
+        "west": {"region": [0, 300, 400, 500], "direction": "west"}
+      },
+      "turn_lanes": {
+        "north_left": {
+          "region": [100, 0, 200, 400],
+          "turn_type": "left",
+          "conflicting_movements": ["south", "east"]
+        }
+      },
+      "crosswalks": {
+        "north_crosswalk": {
+          "region": [250, 380, 450, 420],
+          "crossing_distance": 15.0,
+          "conflicting_lanes": ["north", "south"]
+        }
+      }
+    },
+    "intersection_2": {
+      "id": "intersection_2",
+      "name": "Main St & 2nd Ave",
+      "video_source": "data/intersection2.mp4",
+      "lanes": {
+        "north": {"region": [100, 0, 300, 400], "direction": "north"},
+        "south": {"region": [400, 200, 600, 600], "direction": "south"},
+        "east": {"region": [300, 100, 700, 300], "direction": "east"},
+        "west": {"region": [0, 300, 400, 500], "direction": "west"}
+      }
+    }
+  },
+  "connections": [
+    {
+      "from": "intersection_1",
+      "to": "intersection_2",
+      "distance_meters": 400,
+      "travel_time_seconds": 30
+    }
+  ],
+  "corridors": [
+    {
+      "name": "Main Street Corridor",
+      "intersections": ["intersection_1", "intersection_2"],
+      "direction": "north",
+      "priority": "high"
+    }
+  ]
+}

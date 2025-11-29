@@ -1,0 +1,28 @@
+{
+  "lanes": {
+    "north": {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 360
+    },
+    "south": {
+      "x": 640,
+      "y": 360,
+      "width": 640,
+      "height": 360
+    },
+    "east": {
+      "x": 640,
+      "y": 0,
+      "width": 640,
+      "height": 360
+    },
+    "west": {
+      "x": 0,
+      "y": 360,
+      "width": 640,
+      "height": 360
+    }
+  }
+}

@@ -1,0 +1,96 @@
+intersection:
+  id: comprehensive_example
+  name: Comprehensive Example Intersection
+  video_source: data/testvid.mp4
+
+lanes:
+  north:
+    region: [100, 0, 300, 400]
+    direction: north
+    type: through
+  south:
+    region: [400, 200, 600, 600]
+    direction: south
+    type: through
+  east:
+    region: [300, 100, 700, 300]
+    direction: east
+    type: through
+  west:
+    region: [0, 300, 400, 500]
+    direction: west
+    type: through
+
+turn_lanes:
+  north_left:
+    region: [100, 0, 200, 400]
+    turn_type: left
+    parent_lane: north
+    conflicting_movements: [south, east]
+    minimum_green: 5
+    maximum_green: 30
+  north_right:
+    region: [200, 0, 300, 400]
+    turn_type: right
+    parent_lane: north
+    conflicting_movements: [west]
+    minimum_green: 3
+    maximum_green: 20
+  south_left:
+    region: [500, 200, 600, 600]
+    turn_type: left
+    parent_lane: south
+    conflicting_movements: [north, west]
+    minimum_green: 5
+    maximum_green: 30
+  east_left:
+    region: [300, 100, 500, 200]
+    turn_type: left
+    parent_lane: east
+    conflicting_movements: [west, north]
+    minimum_green: 5
+    maximum_green: 25
+  west_left:
+    region: [200, 300, 400, 400]
+    turn_type: left
+    parent_lane: west
+    conflicting_movements: [east, south]
+    minimum_green: 5
+    maximum_green: 25
+
+crosswalks:
+  north_crosswalk:
+    region: [250, 380, 450, 420]
+    crossing_distance: 15.0
+    conflicting_lanes: [north, south]
+  south_crosswalk:
+    region: [250, 180, 450, 220]
+    crossing_distance: 15.0
+    conflicting_lanes: [north, south]
+  east_crosswalk:
+    region: [680, 250, 720, 450]
+    crossing_distance: 12.0
+    conflicting_lanes: [east, west]
+  west_crosswalk:
+    region: [280, 250, 320, 450]
+    crossing_distance: 12.0
+    conflicting_lanes: [east, west]
+
+signal_timing:
+  minimum_green: 10
+  maximum_green: 60
+  yellow_duration: 3
+  all_red_duration: 2
+  pedestrian_walk_speed: 1.2
+
+detection:
+  model_path: yolov8n.pt
+  confidence_threshold: 0.5
+  tracking_enabled: true
+
+vehicle_weights:
+  car: 1.0
+  truck: 1.5
+  bus: 2.0
+  motorcycle: 0.8
+  bicycle: 0.5

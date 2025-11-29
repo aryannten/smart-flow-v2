@@ -1,0 +1,38 @@
+# Simple Intersection Configuration Example
+# This is a minimal configuration for a basic 4-way intersection
+
+intersection:
+  id: simple_intersection
+  name: Simple 4-Way Intersection
+  video_source: data/testvid.mp4
+
+lanes:
+  north:
+    region: [100, 0, 300, 400]
+    direction: north
+    type: through
+  south:
+    region: [400, 200, 600, 600]
+    direction: south
+    type: through
+  east:
+    region: [300, 100, 700, 300]
+    direction: east
+    type: through
+  west:
+    region: [0, 300, 400, 500]
+    direction: west
+    type: through
+
+# Optional: Signal timing parameters (defaults will be used if omitted)
+signal_timing:
+  minimum_green: 10
+  maximum_green: 60
+  yellow_duration: 3
+  all_red_duration: 2
+
+# Optional: Detection parameters (defaults will be used if omitted)
+detection:
+  model_path: yolov8n.pt
+  confidence_threshold: 0.5
+  tracking_enabled: true

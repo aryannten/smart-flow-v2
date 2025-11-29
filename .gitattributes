@@ -1,0 +1,34 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text eol=lf
+
+# Markdown files
+*.md text eol=lf
+
+# Config files
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.ini text eol=lf
+*.txt text eol=lf
+
+# Batch files (Windows)
+*.bat text eol=crlf
+
+# Shell scripts (Unix)
+*.sh text eol=lf
+
+# Binary files
+*.pt binary
+*.mp4 binary
+*.avi binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+
+# Git LFS (Large File Storage) - for model files
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.avi filter=lfs diff=lfs merge=lfs -text

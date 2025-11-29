@@ -1,0 +1,36 @@
+{
+  "intersections": {
+    "main": {
+      "name": "Main Intersection",
+      "location": "Center",
+      "lanes": ["north", "south", "east", "west"]
+    },
+    "north_intersection": {
+      "name": "North Intersection",
+      "location": "North",
+      "lanes": ["north", "south", "east", "west"]
+    },
+    "south_intersection": {
+      "name": "South Intersection",
+      "location": "South",
+      "lanes": ["north", "south", "east", "west"]
+    }
+  },
+  "connections": [
+    {
+      "from": "main",
+      "to": "north_intersection",
+      "time": 30.0,
+      "distance": 400
+    },
+    {
+      "from": "main",
+      "to": "south_intersection",
+      "time": 35.0,
+      "distance": 450
+    }
+  ],
+  "coordination_enabled": true,
+  "target_speed": 13.9,
+  "description": "Example network configuration for 3-intersection corridor"
+}

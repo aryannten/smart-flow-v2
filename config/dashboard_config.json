@@ -1,0 +1,36 @@
+{
+  "dashboard": {
+    "port": 8080,
+    "host": "0.0.0.0",
+    "enable_cors": true,
+    "allowed_origins": ["*"],
+    "websocket_update_interval": 0.5,
+    "video_stream_fps": 15,
+    "video_stream_quality": 80
+  },
+  "visualization": {
+    "show_heatmap": true,
+    "show_trajectories": true,
+    "show_queue_visualization": true,
+    "show_metrics_overlay": true,
+    "heatmap_opacity": 0.4,
+    "trajectory_length": 30
+  },
+  "metrics": {
+    "update_interval": 1.0,
+    "history_length": 3600,
+    "display_metrics": [
+      "vehicle_count",
+      "throughput",
+      "average_wait_time",
+      "queue_length",
+      "signal_states"
+    ]
+  },
+  "alerts": {
+    "enable_emergency_alerts": true,
+    "enable_congestion_alerts": true,
+    "congestion_threshold": 0.8,
+    "alert_sound": false
+  }
+}
