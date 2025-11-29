@@ -305,7 +305,7 @@ python main.py --source data/testvid.mp4 --enable-tracking
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see the spec files in `.kiro/specs/smart-flow-v2/` for:
+Contributions are welcome!
 - Requirements specification
 - Design document
 - Implementation tasks
